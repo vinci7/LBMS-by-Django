@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="jszgl" name="jszgl">
+  <h2 class="sub-header">借书证管理</h2>
+  <table class="table table-striped">
+  	<tr>
+	  <td>卡号</td>
+	  <td>名字</td>
+	  <td>单位</td>
+	  <td>类别</td>
+	  <td>操作</td>
+	</tr>
+	{% for card in cardlist %}
+	<tr>
+		<td>{{ card.id }}</td>
+		<td>{{ card.name }}</td>
+		<td>{{ card.unit }}</td>
+		<td>{{ card.category }}</td>
+		<td>
+			<form method="POST" action="/library/deletecard/">
+				{% csrf_token %}
+				<input type="hidden" value="{{ card.id }}" name="cardid">
+				<div>
+			        <button type="submit" class="btn btn-danger">删除</button>
+			    </div>
+			</form>
+  		</td>
+	</tr>
+	{% endfor %}
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content %}
+          <div id="dbrk" name="dbrk">
+            <h2 class="sub-header">批量入库</h2>
+
+            <form method="POST" action="/library/doaddbooks/">
+              {% csrf_token %}
+                <div class="form-group">
+                  <textarea class="form-control" rows="15" name="books" placeholder="每行按照格式:分类,书名,出版社,年份,作者,价格,总藏书量"></textarea>
+                </div>
+                <div id="dbrkBtn">
+                  <button type="submit" class="btn btn-primary">批量入库</button>
+                </div>
+            </form>
+          </div>
+{% endblock %}

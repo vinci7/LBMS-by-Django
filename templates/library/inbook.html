@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="hs" name="hs">
+  <h2 class="sub-header">还书</h2>
+  <form method="POST" action="/library/doinbook/">
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">借书证卡号</div>
+          <input type="text" class="form-control" name="cardid">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">书号</div>
+          <input type="text" class="form-control" name="bookid">
+        </div>
+      </div>
+      <div id="dbrkBtn">
+        <button type="submit" class="btn btn-primary">还书</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

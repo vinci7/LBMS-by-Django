@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="jszgl" name="jszgl">
+  <h2 class="sub-header">借阅记录</h2>
+  <table class="table table-striped">
+  	<tr>
+	  <td>分类</td>
+	  <td>书名</td>
+	  <td>出版社</td>
+	  <td>出版年份</td>
+	  <td>作者</td>
+	  <td>价格</td>
+	  <td>总藏书量</td>
+	  <td>库存</td>
+	</tr>
+	{% for card in cardlist %}
+	<tr>
+		<td>{{ card.id }}</td>
+		<td>{{ card.name }}</td>
+		<td>{{ card.unit }}</td>
+		<td>{{ card.category }}</td>
+	</tr>
+	{% endfor %}
+  </table>
+</div>
+{% endblock %}

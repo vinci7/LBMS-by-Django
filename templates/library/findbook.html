@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="js" name="js">
+  <h2 class="sub-header">查找图书</h2>
+  <form method="POST" action="/library/dofindbook/">
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">图书查询</div>
+          <input type="text" class="form-control" name="key">
+        </div>
+      </div>
+      <div id="dbrkBtn">
+        <button type="submit" class="btn btn-primary">搜索</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
